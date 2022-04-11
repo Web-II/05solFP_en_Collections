@@ -160,12 +160,12 @@ const comments = [
 //     return true;
 //   }
 // });
-const isAdult = people.some(
+const isAdult = family.some(
   (person) => new Date().getFullYear() - person.year >= 19
 );
 console.log({ isAdult });
 // Array.prototype.every() // is everyone 19?
-const allAdults = people.every(
+const allAdults = family.every(
   (person) => new Date().getFullYear() - person.year >= 19
 );
 console.log({ allAdults });
