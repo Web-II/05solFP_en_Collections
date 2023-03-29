@@ -24,8 +24,7 @@ const teDecoderen = 'SHUIHFW! BRX DUH GRLQJ JUHDW, NHHS LW XS!';
 const code = 3;
 
 const codeer = function (teCoderen, code, alfabet) {
-  return teCoderen
-    .split('')
+  return [...teCoderen]
     .map((value) => {
       let index = alfabet.indexOf(value);
       if (index !== -1) return alfabet[(index + code) % alfabet.length];
@@ -72,13 +71,13 @@ const woorden = [
   'VERDER',
   'VERVER',
   'VERSER',
-  'VELSER'
+  'VELSER',
 ];
 
 const zijnBuren = function (woord1, woord2) {
   return (
     1 ===
-    woord1.split('').reduce((aantalVerschillendeLetters, letter, index) => {
+    [...woord1].reduce((aantalVerschillendeLetters, letter, index) => {
       return aantalVerschillendeLetters + (letter !== woord2[index]);
     }, 0)
   );
@@ -157,9 +156,7 @@ morse.set('=', '-...-');
 morse.set('@', '.--.-.');
 
 let converteer = function (bericht, morse) {
-  return bericht
-    .toUpperCase()
-    .split('')
+  return [...bericht.toUpperCase()]
     .map((value) => (morse.has(value) ? morse.get(value) + ' ' : value))
     .join('');
 };
