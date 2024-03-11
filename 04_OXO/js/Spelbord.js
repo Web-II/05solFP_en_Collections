@@ -38,10 +38,7 @@ export default class Spelbord {
     // diagonalen
     let diagonaal = this.#bord.reduce((pv, el, i) => pv.concat([el[i]]), []);
     if (isDrieOpEenRij(diagonaal)) return true;
-    diagonaal = this.#bord.reduce(
-      (pv, el, i) => pv.concat([el[Spelbord.grootte - 1 - i]]),
-      []
-    );
+    diagonaal = this.#bord.reduce((pv, el, i) => pv.concat([el[2 - i]]), []);
     if (isDrieOpEenRij(diagonaal)) return true;
     return false;
   }
