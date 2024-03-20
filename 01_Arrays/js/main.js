@@ -91,7 +91,7 @@ console.log(
 const isNarcistisch = function (getal) {
   const somVanMachten = getal
     .split('')
-    .reduce((previous, value, index, array) => {
+    .reduce((previous, value, _, array) => {
       return (previous += Math.pow(value, array.length));
     }, 0);
   return somVanMachten == getal; // merk op: ==
