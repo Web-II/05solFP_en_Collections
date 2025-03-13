@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // ============================================================================
 // Creëer een nieuwe array die alle getallen uit origineel bevat
 // die groter zijn dan 3.
@@ -21,16 +21,16 @@ console.log(onevenMaalTwee);
 
 // ============================================================================
 // Creëer een nieuwe array met alle fruit in hoofdletters.
-const fruit = ['orange', 'pineapple', 'strawberry', 'blueberry', 'melon'];
+const fruit = ["orange", "pineapple", "strawberry", "blueberry", "melon"];
 const fruitCaps = fruit.map((f) => f.toUpperCase());
 console.log(fruitCaps);
 
 // ============================================================================
 // Bereken de gemiddelde leeftijd van users
 const users = [
-  { id: 1, firstname: 'Jan', lastname: 'Janssens', age: 25 },
-  { id: 2, firstname: 'Eva', lastname: 'De Smet', age: 30 },
-  { id: 3, firstname: 'Pieter', lastname: 'Martens', age: 29 }
+  { id: 1, firstname: "Jan", lastname: "Janssens", age: 25 },
+  { id: 2, firstname: "Eva", lastname: "De Smet", age: 30 },
+  { id: 3, firstname: "Pieter", lastname: "Martens", age: 29 },
 ];
 
 const averageAge = users.reduce(
@@ -57,18 +57,18 @@ console.log(filterRange([120, 5, -88, 26, 98, 100], 0, 100));
 // die berekent hoeveel maal een overgang optreedt van + naar − of omgekeerd.
 // Je mag ervan uitgaan dat de invoerstring minstens 1 karakter bevat.
 const berekenAantalOvergangen = (plusMinString) =>
-  plusMinString.split('').reduce((result, value, index, array) => {
+  plusMinString.split("").reduce((result, value, index, array) => {
     return (result =
       index < array.length - 1 && array[index] !== array[index + 1]
         ? result + 1
         : result);
   }, 0);
 
-let plusMin = '-++++----++--+';
+let plusMin = "-++++----++--+";
 console.log(
   `Aantal overgangen in ${plusMin} = ${berekenAantalOvergangen(plusMin)}`
 );
-plusMin = '++';
+plusMin = "++";
 console.log(
   `Aantal overgangen in ${plusMin} = ${berekenAantalOvergangen(plusMin)}`
 );
@@ -89,18 +89,16 @@ console.log(
 // Maak gebruik van getal.split('') om een array met
 // de afzonderlijke cijfers van een getal te bekomen
 const isNarcistisch = function (getal) {
-  const somVanMachten = getal
-    .split('')
-    .reduce((previous, value, _, array) => {
-      return (previous += Math.pow(value, array.length));
-    }, 0);
+  const somVanMachten = getal.split("").reduce((previous, value, _, array) => {
+    return (previous += Math.pow(value, array.length));
+  }, 0);
   return somVanMachten == getal; // merk op: ==
 };
 
-let getal = '548834';
-console.log(`${getal} is ${isNarcistisch(getal) ? '' : 'niet '}narcistisch.`);
-getal = '1234';
-console.log(`${getal} is ${isNarcistisch(getal) ? '' : 'niet '}narcistisch.`);
+let getal = "548834";
+console.log(`${getal} is ${isNarcistisch(getal) ? "" : "niet "}narcistisch.`);
+getal = "1234";
+console.log(`${getal} is ${isNarcistisch(getal) ? "" : "niet "}narcistisch.`);
 
 // ============================================================================
 // Schrijf een functie die controleert of een woord een permutatie is van
@@ -110,17 +108,17 @@ function isPermutatie(woord1, woord2) {
   return [...woord1].sort().toString() === [...woord2].sort().toString();
 }
 
-let woord1 = 'slaapt',
-  woord2 = 'plaats';
+let woord1 = "slaapt",
+  woord2 = "plaats";
 console.log(
   `${woord1} en ${woord2} zijn ${
-    isPermutatie(woord1, woord2) ? '' : 'g'
+    isPermutatie(woord1, woord2) ? "" : "g"
   }een permutatie van elkaar.`
 );
-woord2 = 'plast';
+woord2 = "plast";
 console.log(
   `${woord1} en ${woord2} zijn ${
-    isPermutatie(woord1, woord2) ? '' : 'g'
+    isPermutatie(woord1, woord2) ? "" : "g"
   }een permutatie van elkaar.`
 );
 
@@ -128,38 +126,38 @@ console.log(
 // Sorteer de array animals op basis van gewicht: van lichter naar zwaarder
 const animals = [
   {
-    name: 'lion',
-    size: 'medium',
-    weight: 150
+    name: "lion",
+    size: "medium",
+    weight: 150,
   },
   {
-    name: 'dog',
-    size: 'small',
-    weight: 10
+    name: "dog",
+    size: "small",
+    weight: 10,
   },
   {
-    name: 'elephant',
-    size: 'big',
-    weight: 5000
+    name: "elephant",
+    size: "big",
+    weight: 5000,
   },
   {
-    name: 'cat',
-    size: 'small',
-    weight: 5
-  }
+    name: "cat",
+    size: "small",
+    weight: 5,
+  },
 ];
 
 animals.sort((a, b) => a.weight - b.weight);
 console.log(animals);
 
 // ============================================================================
-// Sorteer de onderstaande array aflopend op het aantal zijden van de shape
+// Maak een array sortedShapes die de elementen uit onderstaande array aflopend op het aantal zijden van de shape bevat. De array shapes blijft ongewijzigd.
 let shapes = [
-  [5, 'Pentagon'],
-  [3, 'Triangle'],
-  [8, 'Octagon'],
-  [4, 'Rectangle']
+  [5, "Pentagon"],
+  [3, "Triangle"],
+  [8, "Octagon"],
+  [4, "Rectangle"],
 ];
 
-shapes.sort(([sides1], [sides2]) => sides2 - sides1);
-console.log(shapes);
+const sortedShapes = shapes.toSorted(([sides1], [sides2]) => sides2 - sides1);
+console.log(sortedShapes);
